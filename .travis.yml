@@ -1,0 +1,16 @@
+sudo: required
+service:
+  - docker
+before_install:
+  - docker-compose up --build
+deploy:
+  provider: elasticbeanstalk
+  region: ap-northeast-1
+  app: my-single-container
+  env: Mysinglecontainer-env
+  bucket_name: elasticbeanstalk-ap-northeast-1-136762368411
+  bucket_path: my-single-container
+  on:
+    branch: master
+  access_key_id: AKIAR7V5MEGN3H2NIZ54
+  secret_key_id: +CmhuuPrfskfa7AkehTBHixlgGRSKs596ByhpiXK
